@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/Navbar'
+import Information from './components/Information'
+import Homepage from './components/Homepage'
+import News from './components/News&media'
+import Contactus from './components/Contactus'
+import Footer from './components/Footer'
+import Movies from './components/Movies'
+import Tv from './components/Tv'
+import Series from './components/Series'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/information" element={<Information />} />
+          <Route path="/news_media" element={<News />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/tv" element={<Tv />} />
+          <Route path="/series" element={<Series />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
